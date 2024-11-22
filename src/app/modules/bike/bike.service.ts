@@ -1,4 +1,4 @@
-import { IBike } from './bike.interface';
+import { IBike, UpdateBikeData } from './bike.interface';
 import { BikeModel } from './bike.model';
 
 // create bike service
@@ -29,9 +29,23 @@ const deleteBikeByIdService = async (bikeId: string) => {
   return result;
 };
 
+// update bike by id service
+const updateBikeByIdService = async (
+  bikeId: string,
+  updateData: UpdateBikeData,
+) => {
+  const updatedBike = await BikeModel.findByIdAndUpdate(
+    bikeId,
+    { $set: updateData }, // Update only specified fields
+    { new: true }, // Return the updated document
+  );
+  return updatedBike;
+};
+
 export const BikeServices = {
   createBikeService,
   getAllBikesService,
   getBikeByIdService,
   deleteBikeByIdService,
+  updateBikeByIdService,
 };

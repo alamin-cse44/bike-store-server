@@ -1,4 +1,6 @@
-export interface IBike {
+import { Document } from 'mongoose';
+
+export interface IBike extends Document {
     name: string;
     brand: string;
     price: number;
@@ -7,3 +9,5 @@ export interface IBike {
     quantity: number;
     inStock: boolean;
 }
+
+export type UpdateBikeData = Partial<IBike>;
