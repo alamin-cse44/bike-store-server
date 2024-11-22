@@ -15,6 +15,7 @@ const createBike = async (req: Request, res: Response) => {
     res.status(500).json({
       message: 'Failed to create bike',
       success: false,
+      error: error,
     });
   }
 };
@@ -31,6 +32,7 @@ const getAllBikes = async (req: Request, res: Response) => {
     res.status(500).json({
       message: 'Failed to retrieve bikes',
       success: false,
+      error: error,
     });
   }
 };
@@ -50,6 +52,7 @@ const getBikeById = async (req: Request, res: Response) => {
     res.status(500).json({
       message: 'Failed to retrieve bike',
       success: false,
+      error: error,
     });
   }
 };
