@@ -35,7 +35,27 @@ const getAllBikes = async (req: Request, res: Response) => {
   }
 };
 
+const getBikeById = async (req: Request, res: Response) => {
+  try {
+    const { bikeId } = req.params;
+
+    const result = await BikeServices.getBikeByIdService(bikeId);
+
+    res.status(200).json({
+      message: 'Single Bike retrieved successfully',
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: 'Failed to retrieve bike',
+      success: false,
+    });
+  }
+};
+
 export const BikeControllers = {
   createBike,
   getAllBikes,
+  getBikeById,
 };

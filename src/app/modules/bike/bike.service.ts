@@ -15,7 +15,14 @@ const getAllBikesService = async () => {
     return result;
 }
 
+const getBikeByIdService = async (bikeId: string) => { 
+    const result = await BikeModel.findOne({_id: bikeId});
+
+    return result;
+}
+
 export const BikeServices = {
     createBikeService,
     getAllBikesService,
+    getBikeByIdService
 }
