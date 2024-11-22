@@ -1,28 +1,37 @@
-import { IBike } from "./bike.interface"
-import { BikeModel } from "./bike.model"
+import { IBike } from './bike.interface';
+import { BikeModel } from './bike.model';
 
-
+// create bike service
 const createBikeService = async (bike: IBike) => {
-    const result = await BikeModel.create(bike);
+  const result = await BikeModel.create(bike);
 
-    return result;
-}
+  return result;
+};
 
-
+// get all bike services
 const getAllBikesService = async () => {
-    const result = await BikeModel.find({});
+  const result = await BikeModel.find({});
 
-    return result;
-}
+  return result;
+};
 
-const getBikeByIdService = async (bikeId: string) => { 
-    const result = await BikeModel.findOne({_id: bikeId});
+// get bike by id service
+const getBikeByIdService = async (bikeId: string) => {
+  const result = await BikeModel.findOne({ _id: bikeId });
 
-    return result;
-}
+  return result;
+};
+
+// delete bike by id service
+const deleteBikeByIdService = async (bikeId: string) => {
+  const result = await BikeModel.deleteOne({ _id: bikeId });
+
+  return result;
+};
 
 export const BikeServices = {
-    createBikeService,
-    getAllBikesService,
-    getBikeByIdService
-}
+  createBikeService,
+  getAllBikesService,
+  getBikeByIdService,
+  deleteBikeByIdService,
+};

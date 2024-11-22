@@ -7,6 +7,8 @@ router
   .post('/create-bike', BikeControllers.createBike)
   .get('/get-bikes', BikeControllers.getAllBikes);
 
-router.get('/:bikeId', BikeControllers.getBikeById)  
+router
+  .get('/:bikeId', BikeControllers.getBikeById)
+  .delete('/:bikeId', BikeControllers.deleteBikeById);
 
 export const BikeRoutes = router;
