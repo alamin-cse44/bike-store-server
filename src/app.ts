@@ -8,9 +8,9 @@ import { OrderRoutes } from './app/modules/order/order.route';
 app.use(express.json());
 app.use(cors());
 
-// application routing 
-app.use('/api/v1/bikes', BikeRoutes)
-app.use('/api/v1/orders', OrderRoutes)
+// application routing
+app.use('/api/v1/bikes', BikeRoutes);
+app.use('/api/v1/orders', OrderRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');

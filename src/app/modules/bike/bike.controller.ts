@@ -111,7 +111,6 @@ const updateBikeById = async (req: Request, res: Response) => {
   }
 };
 
-
 export const BikeControllers = {
   createBike,
   getAllBikes,

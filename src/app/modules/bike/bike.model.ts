@@ -13,18 +13,18 @@ const bikeSchema = new Schema<IBike>(
     },
     brand: {
       type: String,
-      required: [true, "Brand name must be provided"],
+      required: [true, 'Brand name must be provided'],
       trim: true,
       minlength: [3, 'Brand name must be at least 3 characters'],
       maxlength: [30, 'Brand name must not exceed 30 characters'],
     },
     price: {
       type: Number,
-      required: [true, "Price must be provided"],
+      required: [true, 'Price must be provided'],
       validate: {
         validator: (value: number) => value > 0,
         message: 'The bike price must be a positive number',
-      }
+      },
     },
     category: {
       type: String,
@@ -33,7 +33,7 @@ const bikeSchema = new Schema<IBike>(
         message:
           "The bike category must be one of the following: 'Mountain', 'Road', 'Hybrid', 'Electric'",
       },
-      required: [true, "Please enter a valid category"],
+      required: [true, 'Please enter a valid category'],
     },
     description: {
       type: String,
@@ -41,11 +41,11 @@ const bikeSchema = new Schema<IBike>(
     },
     quantity: {
       type: Number,
-      required: [true, "Please the quantity of the bike"],
+      required: [true, 'Please the quantity of the bike'],
       validate: {
         validator: (value: number) => value >= 0,
         message: 'The bike quantity must be a non-negative number',
-      }
+      },
     },
     inStock: {
       type: Boolean,

@@ -30,14 +30,43 @@ const orderSchema = new Schema<IOrder>(
       type: Number,
       required: true,
       validate: {
-        validator: (value: number) => value > 0,
+        validator: (value: number) => value >= 0,
         message: 'The total price must be a positive number',
       },
+      default: 0,
     },
   },
   {
     timestamps: true,
   },
 );
+
+orderSchema.pre('save', async function (next) {
+  const product = await this.model('Bike').findById(this.product);
+  if (!product) {
+    const error = new Error('Product not found');
+    error.name = 'NotFoundError! Product not found';
+    return next(error);
+  }
+  // Check if there is sufficient stock
+  if (product.quantity < this.quantity) {
+    const error = new Error('');
+    error.name = 'StockError! Insufficient stock for the requested quantity';
+    return next(error);
+  }
+
+  // Deduct the ordered quantity from the bike stock
+  product.quantity -= this.quantity;
+
+  // update the totalPrice
+  this.totalPrice = product.price * this.quantity;
+
+  if (product.quantity === 0) {
+    product.inStock = false;
+  }
+  // Update the stock in the database
+  await product.save();
+  next();
+});
 
 export const OrderModel = model<IOrder>('Order', orderSchema);
