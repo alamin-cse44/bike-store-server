@@ -26,8 +26,18 @@ const getOrderByIdService = async (orderId: string) => {
   return result;
 };
 
+// get total revenue service
+const getTotalRevenueService = async () => {
+  const result = await OrderModel.aggregate([
+    { $group: { _id: null, totalRevenue: { $sum: '$totalPrice' } } },
+  ]);
+
+  return result[0]?.totalRevenue || 0;
+};
+
 export const OrderServices = {
   createOrderService,
   getAllOrdersService,
   getOrderByIdService,
+  getTotalRevenueService,
 };

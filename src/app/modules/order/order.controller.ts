@@ -58,8 +58,27 @@ const getOrderById = async (req: Request, res: Response) => {
   }
 };
 
+// get total revenue
+const getTotalRevenue = async (req: Request, res: Response) => {
+  try {
+    const totalRevenue = await OrderServices.getTotalRevenueService();
+    res.status(200).json({
+      message: 'Revenue calculated successfully',
+      success: true,
+      data: { totalRevenue },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: 'Failed to find total revenue',
+      success: false,
+      error: error,
+    });
+  }
+};
+
 export const OrderControllers = {
   createOrder,
   getAllOrders,
   getOrderById,
+  getTotalRevenue,
 };
