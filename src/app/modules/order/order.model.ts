@@ -1,6 +1,7 @@
 import { model, Schema } from 'mongoose';
 import { IOrder } from './order.interface';
 import validator from 'validator';
+import { IBike } from '../bike/bike.interface';
 
 const orderSchema = new Schema<IOrder>(
   {
@@ -42,7 +43,7 @@ const orderSchema = new Schema<IOrder>(
 );
 
 orderSchema.pre('save', async function (next) {
-  const product = await this.model('Bike').findById(this.product);
+  const product = (await this.model('Bike').findById(this.product)) as IBike | null;
   if (!product) {
     const error = new Error('Product not found');
     error.name = 'NotFoundError! Product not found';
