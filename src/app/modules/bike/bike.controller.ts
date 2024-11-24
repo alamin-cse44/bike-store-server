@@ -91,12 +91,14 @@ const updateBikeById = async (req: Request, res: Response) => {
       bikeId,
       updateData,
     );
+
     // if (!updatedBike) {
     //     return res.status(404).json({
     //       message: 'Bike not found',
     //       success: false,
     //     });
     // }
+
     res.status(200).json({
       message: 'Bike updated successfully',
       success: true,

@@ -2,10 +2,13 @@ import express from 'express';
 import { OrderControllers } from './order.controller';
 const router = express.Router();
 
-router.post('/create-order', OrderControllers.createOrder);
-router.get('/get-order', OrderControllers.getAllOrders);
-router.get('/revenue', OrderControllers.getTotalRevenue);
+router
+  .route('/orders')
+  .post(OrderControllers.createOrder)
+  .get(OrderControllers.getAllOrders);
 
-router.get('/:orderId', OrderControllers.getOrderById);
+router.get('/orders/revenue', OrderControllers.getTotalRevenue);
+
+router.get('/orders/:orderId', OrderControllers.getOrderById);
 
 export const OrderRoutes = router;
