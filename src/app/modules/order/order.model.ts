@@ -39,11 +39,25 @@ const orderSchema = new Schema<IOrder>(
   },
   {
     timestamps: true,
+    toJSON: {
+      transform(doc, ret) {
+        delete ret.__v; // Remove the __v field
+        return ret;
+      },
+    },
+    toObject: {
+      transform(doc, ret) {
+        delete ret.__v; // Remove the __v field
+        return ret;
+      },
+    },
   },
 );
 
 orderSchema.pre('save', async function (next) {
-  const product = (await this.model('Bike').findById(this.product)) as IBike | null;
+  const product = (await this.model('Bike').findById(
+    this.product,
+  )) as IBike | null;
   if (!product) {
     const error = new Error('Product not found');
     error.name = 'NotFoundError! Product not found';

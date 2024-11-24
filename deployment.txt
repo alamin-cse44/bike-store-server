@@ -1,0 +1,28 @@
+1. vercel cli 
+  # for the first time
+
+  - npm i -g vercel 
+  - vercel -v 
+  - vercel login 
+  - vercl --prod 
+
+  # after that just need to further deployment run 
+
+  - vercel --prod
+
+# If we want to re-deployment run the following command 
+
+- delete .vercel file 
+- npm uninstall -g vercel 
+
+tricks without installing cli - [ if face any issue with cli installing] 
+
+- npx vercel logout
+- npx vercel login [open with github]
+- npx vercel --prod
+
+# for login ---
+? Which scope should contain your project? alamincse44's
+? Link to existing project? no
+? What’s your project’s name? bike-store-cli
+? In which directory is your code located? ./

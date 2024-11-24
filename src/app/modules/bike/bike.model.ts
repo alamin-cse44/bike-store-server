@@ -54,6 +54,18 @@ const bikeSchema = new Schema<IBike>(
   },
   {
     timestamps: true,
+    toJSON: {
+      transform(doc, ret) {
+        delete ret.__v; // Remove the __v field
+        return ret;
+      },
+    },
+    toObject: {
+      transform(doc, ret) {
+        delete ret.__v; // Remove the __v field
+        return ret;
+      },
+    },
   },
 );
 
