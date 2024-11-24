@@ -12,9 +12,9 @@ const order_route_1 = require("./app/modules/order/order.route");
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 // application routing
-app.use('/api/v1/bikes', bike_route_1.BikeRoutes);
-app.use('/api/v1/orders', order_route_1.OrderRoutes);
+app.use('/api', bike_route_1.BikeRoutes);
+app.use('/api', order_route_1.OrderRoutes);
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Welcome! you have successfully run this application.');
 });
 exports.default = app;

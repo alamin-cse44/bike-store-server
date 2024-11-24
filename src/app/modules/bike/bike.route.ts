@@ -3,11 +3,13 @@ import { BikeControllers } from './bike.controller';
 const router = express.Router();
 
 // call controller
-router.post('/create-bike', BikeControllers.createBike);
-router.get('/get-bikes', BikeControllers.getAllBikes);
+router
+  .route('/bikes')
+  .post(BikeControllers.createBike)
+  .get(BikeControllers.getAllBikes);
 
 router
-  .route('/:bikeId')
+  .route('/bikes/:bikeId')
   .get(BikeControllers.getBikeById)
   .delete(BikeControllers.deleteBikeById)
   .put(BikeControllers.updateBikeById);

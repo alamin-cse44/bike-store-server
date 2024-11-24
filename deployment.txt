@@ -4,7 +4,7 @@
   - npm i -g vercel 
   - vercel -v 
   - vercel login 
-  - vercl --prod 
+  - vercel --prod 
 
   # after that just need to further deployment run 
 

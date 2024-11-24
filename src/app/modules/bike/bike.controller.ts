@@ -53,8 +53,8 @@ const getBikeById = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    res.status(500).json({
-      message: 'Failed to retrieve bike',
+    res.status(404).json({
+      message: 'Bike not found',
       success: false,
       error: error,
     });

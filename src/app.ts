@@ -9,11 +9,11 @@ app.use(express.json());
 app.use(cors());
 
 // application routing
-app.use('/api/v1/bikes', BikeRoutes);
-app.use('/api/v1/orders', OrderRoutes);
+app.use('/api', BikeRoutes);
+app.use('/api', OrderRoutes);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  res.send('Welcome! you have successfully run this application.');
 });
 
 export default app;
