@@ -43,9 +43,9 @@ const getAllBikes = async (req: Request, res: Response) => {
 // get bike by id controller
 const getBikeById = async (req: Request, res: Response) => {
   try {
-    const { bikeId } = req.params;
+    const { productId } = req.params;
 
-    const result = await BikeServices.getBikeByIdService(bikeId);
+    const result = await BikeServices.getBikeByIdService(productId);
 
     res.status(200).json({
       message: 'Single Bike retrieved successfully',
@@ -64,9 +64,9 @@ const getBikeById = async (req: Request, res: Response) => {
 // delete a bike by id controller
 const deleteBikeById = async (req: Request, res: Response) => {
   try {
-    const { bikeId } = req.params;
+    const { productId } = req.params;
 
-    const result = await BikeServices.deleteBikeByIdService(bikeId);
+    const result = await BikeServices.deleteBikeByIdService(productId);
 
     res.status(200).json({
       message: 'Bike deleted successfully',
@@ -85,10 +85,10 @@ const deleteBikeById = async (req: Request, res: Response) => {
 // update a bike by id controller
 const updateBikeById = async (req: Request, res: Response) => {
   try {
-    const { bikeId } = req.params;
+    const { productId } = req.params;
     const updateData: UpdateBikeData = req.body;
     const updatedBike = await BikeServices.updateBikeByIdService(
-      bikeId,
+      productId,
       updateData,
     );
 

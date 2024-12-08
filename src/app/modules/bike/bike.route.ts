@@ -4,12 +4,12 @@ const router = express.Router();
 
 // call controller
 router
-  .route('/bikes')
+  .route('/products')
   .post(BikeControllers.createBike)
   .get(BikeControllers.getAllBikes);
 
 router
-  .route('/bikes/:bikeId')
+  .route('/products/:productId')
   .get(BikeControllers.getBikeById)
   .delete(BikeControllers.deleteBikeById)
   .put(BikeControllers.updateBikeById);

@@ -16,26 +16,26 @@ const getAllBikesService = async () => {
 };
 
 // get bike by id service
-const getBikeByIdService = async (bikeId: string) => {
-  const result = await BikeModel.findOne({ _id: bikeId });
+const getBikeByIdService = async (productId: string) => {
+  const result = await BikeModel.findOne({ _id: productId });
 
   return result;
 };
 
 // delete bike by id service
-const deleteBikeByIdService = async (bikeId: string) => {
-  const result = await BikeModel.deleteOne({ _id: bikeId });
+const deleteBikeByIdService = async (productId: string) => {
+  const result = await BikeModel.deleteOne({ _id: productId });
 
   return result;
 };
 
 // update bike by id service
 const updateBikeByIdService = async (
-  bikeId: string,
+  productId: string,
   updateData: UpdateBikeData,
 ) => {
   const updatedBike = await BikeModel.findByIdAndUpdate(
-    bikeId,
+    productId,
     { $set: updateData }, // Update only specified fields
     { new: true }, // Return the updated document
   );
