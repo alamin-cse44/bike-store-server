@@ -4,8 +4,8 @@
 
 ### The working flow of my API end point is described below :
 
-- https://bike-store-cli.vercel.app/api/bikes  —> to create a product (POST) / to get all products (GET)
-- https://bike-store-cli.vercel.app/api/v1/bikes/6740ac9d0c378aa88dd2ea35 —> to get the specific item and also for updating, deleting etc.
+- https://bike-store-cli.vercel.app/api/products  —> to create a product (POST) / to get all products (GET)
+- https://bike-store-cli.vercel.app/api/products/6740ac9d0c378aa88dd2ea35 —> to get the specific item and also for updating, deleting etc.
 
 - https://bike-store-cli.vercel.app/api/orders —> to create an order (POST) / to get all orders (GET)
 - https://bike-store-cli.vercel.app/api/orders/67416f3ef20e7e9d8b3510b3 —> to find specific order for updating, deleting etc.
